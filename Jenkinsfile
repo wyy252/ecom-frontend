@@ -2,7 +2,7 @@
 
 ciPipeline(
     serviceName: 'ecom-frontend',
-    imageName: 'YOUR_DOCKERHUB_USERNAME/ecom-frontend',
+    imageName: '3020244252/ecom-frontend',
     dockerCredentialsId: 'dockerhub-creds',
     buildCommand: 'npm ci && npm run lint && npm run build',
     testCommand: 'npm test',
