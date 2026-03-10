@@ -2,6 +2,9 @@ import js from '@eslint/js'
 import globals from 'globals'
 
 export default [
+  {
+    ignores: ['dist/**', 'node_modules/**']
+  },
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx}'],
@@ -16,6 +19,20 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node
+      }
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^(React|[A-Z])' }]
+    }
+  },
+  {
+    files: ['**/*.test.{js,jsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        test: 'readonly',
+        expect: 'readonly'
       }
     }
   }
